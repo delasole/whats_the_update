@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify, request, redirect
-from models import connect_to_db
+from models import connect_to_db, Order, Message
 import crud
 
 app = Flask(__name__)
@@ -11,6 +11,17 @@ def redirect_homepage():
 @app.route("/home")
 def load_homepage():
   return render_template("index.html")
+
+@app.route("/api/orders.json")
+def get_orders():
+  orders = Order.query.all()
+  order_list = []
+
+  for order in orders:
+    order_list.append({"order_id":order.order_id, "phone":order.phone, "first name": order.first_name, "last name": order.last_name, "order date": order.order_date, "item":order.item})
+    time.sleep(2)
+
+    return jsonify({"orders": order_list})
 
 @app.route("/upload", methods=['POST'])
 def file_upload():
