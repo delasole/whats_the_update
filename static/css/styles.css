@@ -15,7 +15,18 @@ width: 100%;
 position: absolute;
 width: 1059px;
 height: 402px;
-left: 53px;
+left: 400px;
 top: 230px;
 background-color: white;
+
+
+font-family: Playfair Display;
+font-style: normal;
+font-weight: bold;
+font-size: 20px;
+line-height: 24px;
+display: flex;
+align-items: center;
+
+color: #000000;
 }

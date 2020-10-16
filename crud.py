@@ -31,6 +31,9 @@ def get_messages():
 def get_messages_by_id(order_id):
     return Message.query.get(order_id)
 
+def get_order_by_id(order_id):
+    return Order.query.filter(Order.order_id == order_id).all()
+
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)

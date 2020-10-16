@@ -3,6 +3,7 @@ from crud import store_message
 import os
 import datetime
 
+
 auth_key = os.environ['TWILIO_AUTH_TOKEN']
 sending_number = '+12188750021'
 acct_sid = os.environ['TWILIO_ACCOUNT_SID']
@@ -13,6 +14,8 @@ def send_message(order_id,to,message):
         message = params.messages.create(to=to,from_=sending_number,body=message)
         store_message(order_id=order_id,phone=to,message=message,message_sid=message.sid)
         print(message_sid)
+
+
         
 
         

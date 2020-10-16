@@ -1,6 +1,8 @@
 from flask import Flask, render_template, jsonify, request, redirect
 from models import connect_to_db, Order, Message
+from sendsms import send_message
 import crud
+import time
 
 app = Flask(__name__)
 
@@ -26,6 +28,13 @@ def get_orders():
 @app.route("/upload", methods=['POST'])
 def file_upload():
   return render_template("upload_data.html")
+
+
+@app.route("/messagecenter/<order_id>")
+def get_details(order_id):
+
+  order = crud.get_order_by_id(order_id)
+  return render_template("message_center.html",order=order)
 
 
 
