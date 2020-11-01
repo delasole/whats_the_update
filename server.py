@@ -1,10 +1,14 @@
 from flask import Flask, render_template, jsonify, request, redirect
 from models import connect_to_db, Order, Message
 from sendsms import send_message
+import os
 import crud
 import time
+UPLOAD_FOLDER = '/data'
+ALLOWED_EXTENSIONS = {'xls','xlsx'}
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route("/")
 def redirect_homepage():
@@ -20,12 +24,11 @@ def get_orders():
   order_list = []
 
   for order in orders:
-    order_list.append({"order_id":order.order_id, "phone":order.phone, "first name": order.first_name, "last name": order.last_name, "order date": order.order_date, "item":order.item})
-    time.sleep(2)
+    order_list.append({"order_id":order.order_id, "phone":order.phone, "first_name": order.first_name, "last_name": order.last_name, "order_date": order.order_date, "item":order.item})
 
-    return jsonify({"orders": order_list})
+  return jsonify({"orders": order_list})
 
-@app.route("/upload", methods=['POST'])
+@app.route("/upload")
 def file_upload():
   return render_template("upload_data.html")
 
