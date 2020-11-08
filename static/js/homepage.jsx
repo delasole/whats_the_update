@@ -1,44 +1,37 @@
-
-function OrderHistory(props) {
-    return (
-        <div onClick={() => href='/messagecenter/${props.order_id}'}className='order-history'>
-            <p>{props.phone}</p>
-            <p>{props.firstname}</p>
-            <p>{props.lastname}</p>
-            <p>{props.orderdate}</p>
-            <p>{props.item}</p>
-        </div>
-    )
+function Order(props) {
+  const {order} = props;
+  return (
+    <div onClick='/messagecenter/`${order.order_id}`'>
+      <p>{order.order_id}</p>
+      <p>{order.order_date}</p>
+      <p>{order.first_name} {order.last_name}</p>
+      <p>{order.phone}</p>
+      <p>{order.item}</p>
+    </div>
+  );
 }
 
-function OrderHistoryContainer(props) {
-    const[OrderHistoryData, setOrderHistoryData] = React.useState(null);
+function OrderHistory() {
+  const [orders, setOrders]= React.useState([]);
+  React.useEffect(() => {
+    fetch('/api/orders.json').
+    then((response) => response.json()).
+    then((orders)=> setOrders(orders.orders));
+  }, []);
 
-    React.useEffect(() => {
-        fetch('/api/orders.json').
-        then((response) => response.json()).
-        then((data) => {setOrderHistoryData(data.orders);})
-        console.log('here')
-    }, [])
+  if(orders.length === 0) return <div>Loading...</div>
+  
+  const content = []
 
-const orderHistories = [];
-for(const orderHistory of OrderHistoryData){
-    orderHistories.push(
-        <OrderHistory
-        order_id={orderHistory.order_id}
-        firstname = {orderHistory.first_name}
-        lastname = {orderHistory.last_name}
-        phone = {orderHistory.phone}
-        item = {orderHistory.item}
-        orderdate = {orderHistory.order_date}/>
+  for(const order of orders){
+    content.push(<Order key ={order.order_id} order={order}/>);
+  }
+  return (
+  <div>
+    {content}
+    </div>
     );
 }
 
-return(
-    <React.Fragment>
-        {orderHistories}
-    </React.Fragment>
-    )
-}
-ReactDOM.render(<OrderHistoryContainer orderHistories={OrderHistoryData}/>,
-    document.getElementById('order-history'));
+ReactDOM.render(<OrderHistory/>,
+  document.getElementById('order-container'));

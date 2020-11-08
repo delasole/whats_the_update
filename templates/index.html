@@ -5,19 +5,24 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="/static/styles.css">
-    <script
-      src="http://code.jquery.com/jquery-3.5.1.js"
-      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-      crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/styles.css"> 
   </head>
   <body>
-    {% block content %}<div id="order-history"><h1>Order History</h1>
+    {% block content %}
+    <div class="order-history"><h1>Order History</h1>
+    <div id='order-container' class='grid-item'></div>
+    </div>
+    <script src="/static/js/homepage.jsx" type="text/jsx"></script>
+    <script
+  crossorigin
+  src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"
+></script>
+
       
-    </div> {% endblock %}
+    {% endblock %}
   </body>
   {% block js %}
-      <script src="/static/js/homepage.jsx" type="text/jsx"></script>
-    {% endblock%}
+  {% endblock%}
+  </html>
 
      

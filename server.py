@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, request, redirect
+from flask import Flask, render_template, jsonify, request, redirect, flash
 from models import connect_to_db, Order, Message
 from sendsms import send_message
 import os
@@ -39,6 +39,18 @@ def get_details(order_id):
   order = crud.get_order_by_id(order_id)
   return render_template("message_center.html",order=order)
 
+@app.route("/sendmessage")
+def send_message():
+
+  order = request.args.get('order')
+  message = request.args.get('message')
+  phone = request.args.get('phone')
+
+  message = send_message(order,phone,message)
+
+
+  flash("Your message has been sent.")
+  return redirect("/home")
 
 
 if __name__ == "__main__":
