@@ -40,13 +40,15 @@ def get_details(order_id):
   return render_template("message_center.html",order=order)
 
 @app.route("/sendmessage")
-def send_message():
+def send_msg():
 
-  order = request.args.get('order')
-  message = request.args.get('message')
-  phone = request.args.get('phone')
+  order = request.form.get('order')
+  message = request.form.get('message')
+  to = request.form.get('phone')
+  
+  print(order, to)
 
-  message = send_message(order,phone,message)
+  messages = send_message(order,to,message)
 
 
   flash("Your message has been sent.")

@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+
 <!doctype html>
 <html>
   <head>
@@ -18,7 +20,15 @@
 
 <p>What message do you want to send?</p>
 
-<p id></p>
+<form action="/sendmessage">
+  <input type="hidden" name="order" value= '{{item["order_id"]}}'>
+  <input type="hidden" name="phone" value= '{{item["phone"]}}'>
+  <input type="hidden" name="message" value=
+  'Hello {{item["first_name"]}}, We are about to begin on your {{item["item"]}}'>
+  <p name="message" value=
+  'Hello {{item["first_name"]}}, We are about to begin on your {{item["item"]}}'>Hello {{item["first_name"]}}, We are about to begin on your {{item["item"]}}.</p>
+  <input type="submit" value="Send">
+</form>
 {% endfor %}
     {% endblock %}
       </body>

@@ -1,12 +1,16 @@
 function Order(props) {
   const {order} = props;
   return (
-    <div onClick='/messagecenter/`${order.order_id}`'>
-      <p>{order.order_id}</p>
-      <p>{order.order_date}</p>
-      <p>{order.first_name} {order.last_name}</p>
-      <p>{order.phone}</p>
-      <p>{order.item}</p>
+    <div>
+      <td>Order #</td>
+      <div>
+        <td>
+          <a href={"/messagecenter/" + order.order_id}>{order.order_id}</a>
+        </td>
+        <td>{order.order_date}</td>
+        <td>{order.first_name} {order.last_name}</td>
+        <td>{order.item}</td>
+    </div>
     </div>
   );
 }

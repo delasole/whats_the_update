@@ -13,6 +13,8 @@ width: 100%;
 #order-history{
 
 position: absolute;
+grid-row-gap: 10px;
+grid-column-gap: 10px;
 width: 1059px;
 height: 402px;
 left: 400px;
@@ -29,6 +31,11 @@ display: flex;
 align-items: center;
 
 color: #000000;
+}
+
+.grid-header{
+    grid-row: 1;
+    grid-column: 1/4;
 }
 .grid-container{
 display: grid;

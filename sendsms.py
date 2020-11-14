@@ -12,7 +12,6 @@ params = Client(acct_sid,auth_key)
 
 def send_message(order_id,to,message):
         message = params.messages.create(to=to,from_=sending_number,body=message)
-        store_message(order_id=order_id,phone=to,message=message,message_sid=message.sid)
         print(message_sid)
 
 
