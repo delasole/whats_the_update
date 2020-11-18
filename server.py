@@ -1,6 +1,6 @@
 from flask import Flask, render_template, jsonify, request, redirect, flash
 from models import connect_to_db, Order, Message
-from sendsms import send_message
+import sendsms
 import os
 import crud
 import time
@@ -9,6 +9,7 @@ ALLOWED_EXTENSIONS = {'xls','xlsx'}
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.secret_key = os.environ['SECRET_KEY']
 
 @app.route("/")
 def redirect_homepage():
@@ -39,16 +40,14 @@ def get_details(order_id):
   order = crud.get_order_by_id(order_id)
   return render_template("message_center.html",order=order)
 
-@app.route("/sendmessage")
+@app.route("/sendmessage/")
 def send_msg():
 
-  order = request.form.get('order')
-  message = request.form.get('message')
-  to = request.form.get('phone')
-  
-  print(order, to)
+  order_id = request.args.get('order')
+  message = request.args.get('message')
+  to = request.args.get('phone')
 
-  messages = send_message(order,to,message)
+  messages = sendsms.send_message(to=to, message=message)
 
 
   flash("Your message has been sent.")
