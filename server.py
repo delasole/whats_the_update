@@ -76,6 +76,9 @@ def login_user():
 
     return redirect("/")
 
+@app.route("/resetpassword")
+def reset_password():
+  """Handles password reset for the users"""
 
 @app.route("/logout")
 def log_out():
@@ -94,7 +97,9 @@ def load_orders():
 
 @app.route("/api/orders.json")
 def get_orders():
-  orders = Order.query.all()
+
+  user = session['user_id']
+  orders = Order.query.filter(Order.user_id==user).all()
   order_list = []
 
   for order in orders:
@@ -120,7 +125,8 @@ def send_msg():
   messages = sendsms.send_message(to=to, message=message)
 
 
-  flash("Your message has been sent.")
+  flash('Your message has been sent.')
+  time.sleep(3)
   return redirect("/")
 
 

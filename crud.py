@@ -44,9 +44,7 @@ def create_user(username, user_password, user_first_name):
     return user
 
 def find_user_id(username):
-    
-
-    return user
+    return User.query.filter(User.username == username).first()
 
     
 if __name__ == '__main__':
