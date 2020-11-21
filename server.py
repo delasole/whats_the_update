@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, request, redirect, flash
+from flask import Flask, render_template, jsonify, request, redirect,session, flash
 from models import connect_to_db, Order, Message, User,db
 import sendsms
 import os
@@ -54,7 +54,7 @@ def process_reg():
 
 @app.route("/login", methods=["POST"])
 def login_user():
-    """Adds user information to session."""
+    """After logging in we want to personalize our website for the user."""
 
     current_username = request.form.get('username')
     current_password = request.form.get('password')
