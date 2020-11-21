@@ -34,6 +34,21 @@ def get_messages_by_id(order_id):
 def get_order_by_id(order_id):
     return Order.query.filter(Order.order_id == order_id).all()
 
+def create_user(username, user_password, user_first_name):
+    
+    user = User(username=username, user_password=user_password, user_first_name=user_first_name)
+
+    db.session.add(user)
+    db.session.commit()
+
+    return user
+
+def find_user_id(username):
+    
+
+    return user
+
+    
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)

@@ -13,6 +13,44 @@ import server
 os.system('dropdb messages')
 os.system('createdb messages')
 
+#Create Order
+
+def add_orders():
+    """ Adding orders to our orders database. Data is split by a semicolon"""
+
+    models.Order.query.delete()
+
+    for row in open("data/orders.txt"):
+        row = row.rstrip()
+        order_id, user_id, phone, first_name, last_name, order_date, item = row.split(";")
+
+        order = models.Order(order_id=order_id,
+                         user_id=user_id,
+                         phone=phone,
+                         first_name=first_name,
+                         last_name=last_name,
+                         order_date=order_date,
+                         item=item)
+    
+        db.session.add(order)
+    db.session.commit()
+
+#Create User
+def add_users():
+    """ Adding users to our user database. Data is split by a semicolon"""
+
+models.User.query.delete()
+
+for row in open("data/users.txt"):
+    row = row.rstrip()
+    username,  user_password, user_first_name = row.split(";")
+
+    user = models.User(username=username,
+                       user_password=user_password,
+                       user_first_name=user_first_name)
+    
+    db.session.add(user)
+    db.session.commit()
 #This will be the commands to connect to the db and
 #add the new tables we created so far in the project
 

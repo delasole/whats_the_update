@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header>
+    <div><a target="_self" href="/login">Log In</a></div>  
+    <div><a target="_self" href="/join">Sign Up</a></div>
+    <div><a target="_self" href="/about">About This Project</a></div>
+</header>
+<div class="row">
+    <div>
+        <form action="/join" method="POST">
+            <div>
+                <input type="name" name="name" id="name" class="validate" required placeholder="First Name">
+            </div>
+            <div>
+                <input type="text" name="username" id="username" class="validate" required placeholder="Email Address">
+            </div>
+
+            <div>
+                <input type="password" name="password" id="password" class="validate" required placeholder="Password">
+            </div>
+
+            <button type="submit" name="action">
+                Sign Up
+            </button>
+            <p>
+        </form>
+    </div>
+</div>
+<div><a target="_self" href="/login">Already have an account? Sign In</a></div>
+{% endblock %}

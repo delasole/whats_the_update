@@ -24,9 +24,37 @@
   <input type="hidden" name="order" value= '{{item["order_id"]}}'>
   <input type="hidden" name="phone" value= '{{item["phone"]}}'>
   <input type="hidden" name="message" value=
-  'Hello {{item["first_name"]}}, We are about to begin on your {{item["item"]}}'>
+  'Hello {{item["first_name"]}}, We are about to begin on your {{item["item"]}}.'>
   <p name="message" value=
-  'Hello {{item["first_name"]}}, We are about to begin on your {{item["item"]}}'>Hello {{item["first_name"]}}, We are about to begin on your {{item["item"]}}.</p>
+  'Hello {{item["first_name"]}}, We are about to begin on your {{item["item"]}}.'>Hello {{item["first_name"]}}, We are about to begin on your {{item["item"]}} .</p>
+  <input type="submit" value="Send">
+</form>
+
+<form action="/sendmessage">
+  <input type="hidden" name="order" value= '{{item["order_id"]}}'>
+  <input type="hidden" name="phone" value= '{{item["phone"]}}'>
+  <input type="hidden" name="message" value=
+  'Hello {{item["first_name"]}}, Friendly update that we have started work on {{item["item"]}}.'>
+  <p name="message" value=
+  'Hello {{item["first_name"]}}, Friendly update that we have started work on {{item["item"]}}.'>Hello {{item["first_name"]}}, Friendly update that we have started work on {{item["item"]}} .</p>
+  <input type="submit" value="Send">
+</form>
+
+<form action="/sendmessage">
+  <input type="hidden" name="order" value= '{{item["order_id"]}}'>
+  <input type="hidden" name="phone" value= '{{item["phone"]}}'>
+  <input type="hidden" name="message" value=
+  'Hello {{item["first_name"]}}, We have finished {{item["item"]}} and will be delivering soon.'>
+  <p name="message" value=
+  'Hello {{item["first_name"]}}, We have finished {{item["item"]}} and will be delivering soon.'>Hello {{item["first_name"]}}, We have finished  {{item["item"]}} and will be delivering soon.</p>
+  <input type="submit" value="Send">
+</form>
+
+<form action="/sendmessage">
+  <input type="hidden" name="order" value= '{{item["order_id"]}}'>
+  <input type="hidden" name="phone" value= '{{item["phone"]}}'>
+  <label>Enter your own message</label>
+  <input type="text" name="message">
   <input type="submit" value="Send">
 </form>
 {% endfor %}
