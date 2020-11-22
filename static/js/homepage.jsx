@@ -21,7 +21,7 @@ function OrderHistory() {
     then((orders)=> setOrders(orders.orders));
   }, []);
 
-  if(orders.length === 0) return <div>Loading...</div>
+  if(orders.length === 0) return <div>You have no orders in the system.</div>
   
   const content = []
 

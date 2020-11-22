@@ -20,16 +20,18 @@
 {% endwith %}
 
 {% if 'user_id' in session %}
-<header>
+<header class = "topnav-right">
   <div><a target="_self" href="/logout">Logout</a></div>
 </header>
 
 {% else %}
 
-<header>
-  <div><a target="_self" href="/login">Log In</a></div>  
-  <div><a target="_self" href="/join">Sign Up</a></div>
-  <div><a target="_self" href="/about">About This Project</a></div>
+<header class = "topnav-right">
+  <div>
+    <a target="_self" href="/login">Log In</a>
+    <a target="_self" href="/about">About This Project</a>
+    <a class="a-border" target="_self" href="/join">Sign Up</a>
+  </div>
 </header>
 {% endif %}
 
