@@ -18,6 +18,21 @@
     </ul>
   {% endif %}
 {% endwith %}
+
+{% if 'user_id' in session %}
+<header>
+  <div><a target="_self" href="/logout">Logout</a></div>
+</header>
+
+{% else %}
+
+<header>
+  <div><a target="_self" href="/login">Log In</a></div>  
+  <div><a target="_self" href="/join">Sign Up</a></div>
+  <div><a target="_self" href="/about">About This Project</a></div>
+</header>
+{% endif %}
+
 <body>
   {% block content %}{% endblock %}
 </body>

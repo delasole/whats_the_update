@@ -10,9 +10,11 @@
   <body>
     {% block content %}
 
+    {% if 'user_id' in session %}
     <h1>
       Welcome {{ session['name']}}!
     </h1>
+    {% endif %}
     <p>Select an order to get started.</p>
     <div class="flex flex-col">
               <tbody>

@@ -15,6 +15,7 @@ def go_homepage():
 
 @app.route("/join")
 def go_join():
+
   return render_template("registration.html")
 
 @app.route("/login")
@@ -68,17 +69,35 @@ def login_user():
             session['user_id'] = user.id
             session['name'] = user.user_first_name
             time.sleep(3)
-            return redirect("/")
+            return redirect("/orders")
         else:
             flash('Uh oh! Either your username or password is incorrect. Please try again.')
     else:
         flash('Uh oh! Either your username or password is incorrect. Please try again.')
 
-    return redirect("/")
+    return redirect("/login")
 
-@app.route("/resetpassword")
+@app.route("/resetpassword", methods=['GET'])
+def load_page():
+  return render_template("reset_password.html")
+
+@app.route("/resetpassword", methods=['POST'])
 def reset_password():
   """Handles password reset for the users"""
+
+  username = request.form.get('username')
+  password = request.form.get('password')
+
+  user = User.query.filter(User.username == username).first()
+
+  if user:
+      user.user_password = password
+      db.session.commit()
+      
+      flash('Your password has been updated. Please login.')
+      time.sleep(3)
+  return redirect("/login")
+
 
 @app.route("/logout")
 def log_out():
