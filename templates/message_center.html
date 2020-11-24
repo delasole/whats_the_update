@@ -14,48 +14,48 @@
   </head>
   <body>
     {% block content %}
-<p>You are sending a message to:</p>
+<h2>You are sending a message to:</h2>
 {% for item in order %}
-<div>{{item["first_name"]}} {{item["last_name"]}}</div>
+<div><p>{{item["first_name"]}} {{item["last_name"]}}</p></div>
 
-<p>What message do you want to send?</p>
+<h2>What message do you want to send?</h2>
 
-<form action="/sendmessage">
+<form class="message-container" action="/sendmessage">
   <input type="hidden" name="order" value= '{{item["order_id"]}}'>
   <input type="hidden" name="phone" value= '{{item["phone"]}}'>
   <input type="hidden" name="message" value=
   'Hello {{item["first_name"]}}, We are about to begin on your {{item["item"]}}.'>
+  <input class="message-button" type="submit" value="Send">
   <p name="message" value=
   'Hello {{item["first_name"]}}, We are about to begin on your {{item["item"]}}.'>Hello {{item["first_name"]}}, We are about to begin on your {{item["item"]}} .</p>
-  <input type="submit" value="Send">
 </form>
 
-<form action="/sendmessage">
+<form class="message-container" action="/sendmessage">
   <input type="hidden" name="order" value= '{{item["order_id"]}}'>
   <input type="hidden" name="phone" value= '{{item["phone"]}}'>
   <input type="hidden" name="message" value=
   'Hello {{item["first_name"]}}, Friendly update that we have started work on {{item["item"]}}.'>
+  <input class="message-button" type="submit" value="Send">
   <p name="message" value=
   'Hello {{item["first_name"]}}, Friendly update that we have started work on {{item["item"]}}.'>Hello {{item["first_name"]}}, Friendly update that we have started work on {{item["item"]}} .</p>
-  <input type="submit" value="Send">
 </form>
 
-<form action="/sendmessage">
+<form class="message-container" action="/sendmessage">
   <input type="hidden" name="order" value= '{{item["order_id"]}}'>
   <input type="hidden" name="phone" value= '{{item["phone"]}}'>
   <input type="hidden" name="message" value=
   'Hello {{item["first_name"]}}, We have finished {{item["item"]}} and will be delivering soon.'>
+  <input class="message-button" type="submit" value="Send">
   <p name="message" value=
   'Hello {{item["first_name"]}}, We have finished {{item["item"]}} and will be delivering soon.'>Hello {{item["first_name"]}}, We have finished  {{item["item"]}} and will be delivering soon.</p>
-  <input type="submit" value="Send">
 </form>
 
-<form action="/sendmessage">
+<form class= "message-container" action="/sendmessage">
   <input type="hidden" name="order" value= '{{item["order_id"]}}'>
   <input type="hidden" name="phone" value= '{{item["phone"]}}'>
   <label>Enter your own message</label>
+  <input class="message-button" type="submit" value="Send">
   <input type="text" name="message">
-  <input type="submit" value="Send">
 </form>
 {% endfor %}
     {% endblock %}
