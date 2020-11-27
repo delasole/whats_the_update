@@ -1,15 +1,27 @@
 function Order(props) {
   const {order} = props;
   return (
-    <div>
-      <span>Order #</span>
-        <td>
-          <a href={"/messagecenter/" + order.order_id}>{order.order_id}</a>
-        </td>
-        <td>{order.order_date}</td>
-        <td>{order.first_name} {order.last_name}</td>
-        <td>{order.item}</td>
-    </div>
+  <table className="order-body">
+      <thead>
+        <tr>
+          <td className="order-header">Order Id</td>
+          <td className="order-header">Order Date</td>
+          <td className="order-header">Buyer's Name</td>
+          <td className="order-header">Item Purchase</td>
+          <td className="order-header">Last Contacted</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td className="order-detail">
+            <a href={"/messagecenter/" + order.order_id}>{order.order_id}</a>
+          </td>
+          <td className="order-detail">{order.order_date}</td>
+          <td className="order-detail">{order.first_name} {order.last_name}</td>
+          <td className="order-detail">{order.item}</td>
+        </tr>
+      </tbody>
+  </table>  
   );
 }
 
@@ -21,7 +33,7 @@ function OrderHistory() {
     then((orders)=> setOrders(orders.orders));
   }, []);
 
-  if(orders.length === 0) return <div>You have no orders in the system.</div>
+  if(orders.length === 0) return <p>You have no orders in the system.</p>
   
   const content = []
 

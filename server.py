@@ -141,12 +141,12 @@ def send_msg():
   message = request.args.get('message')
   to = request.args.get('phone')
 
-  messages = sendsms.send_message(to=to, message=message)
+  messages = sendsms.send_message(order_id=order_id,to=to, message=message)
 
 
   flash('Your message has been sent.')
   time.sleep(3)
-  return redirect("/")
+  return redirect("/orders")
 
 
 if __name__ == "__main__":

@@ -2,11 +2,29 @@
 <html>
 <head>
   <title>{% block title %}What's The Update?{% endblock %}</title>
+  <link rel="icon" type="image/svg" href="/static/img/watch.svg"/>
   <link rel="stylesheet" href="/static/css/styles.css">
   <script src="http://code.jquery.com/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
   <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  
+  {% if 'user_id' in session %}
+  <nav class = "topnav-right"><a target="_self" href="/logout">Logout</a></nav>
+
+
+{% else %}
+  <nav>
+    <a class = "topnav-left" href="/">
+      <img src="/static/img/watch.svg">
+    </a>
+  </nav>
+  <nav class = "topnav-right">
+    <a target="_self" href="/about">About This Project</a>
+    <a target="_self" href="/login">Sign In</a>
+    <a class="a-border" target="_self" href="/join">Sign Up</a>
+  </nav>
+{% endif %}
 </head>
 
 {% with messages = get_flashed_messages() %}
@@ -19,21 +37,7 @@
   {% endif %}
 {% endwith %}
 
-{% if 'user_id' in session %}
-<header class = "topnav-right">
-  <div><a target="_self" href="/logout">Logout</a></div>
-</header>
 
-{% else %}
-
-<header class = "topnav-right">
-  <div>
-    <a target="_self" href="/login">Log In</a>
-    <a target="_self" href="/about">About This Project</a>
-    <a class="a-border" target="_self" href="/join">Sign Up</a>
-  </div>
-</header>
-{% endif %}
 
 <body>
   {% block content %}{% endblock %}

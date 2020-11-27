@@ -2,26 +2,24 @@
 
 {% block content %}
 
-<div class="row">
-    <div>
-        <div>What's the update?</div>
-        <p>Personalize SMS notifications. Satisfield customers.</p>
-        <form action="/login" method="POST">
+    <div class="main-field centered">
+        <p class="sign">Sign In</p>
+        <form class="form1" action="/login" method="POST">
             <div>
-                <input type="text" name="username" id="username" class="validate" required placeholder="Email Address">
+                <input type="text" name="username" id="username" class="un" required placeholder="Email Address">
             </div>
 
             <div>
-                <input type="password" name="password" id="password" class="validate" required placeholder="Password">
+                <input type="password" name="password" id="password" class="pass" required placeholder="Password">
             </div>
 
-            <button type="submit" name="action">
+            <button class="submit" type="submit" name="action">
                 Sign In
             </button>
             <p>
         </form>
+        <div class="a-center"><a target="_self" href="/resetpassword">Forgot Password?</a></div>
+        <div><a target="_self" href="/join">Don't have an account? Sign Up!</a></div>
     </div>
-</div>
-<div><a target="_self" href="/resetpassword">Forgot Password?</a></div>
-<div><a target="_self" href="/join">Don't have an account? Sign Up!</a></div>
+
 {% endblock %}

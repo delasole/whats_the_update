@@ -52,7 +52,7 @@ class Message(db.Model):
     orders = db.relationship('Order', backref='message_history')
 
     def __repr__(self):
-        return(f"<Message ID = {self.message_id} Order ID = {self.order_id} Phone = {self.phone} Message={self.message} Message SID = {self.message_sid} Message Date = {self.message_date}>")
+        return(f"<Message ID = {self.message_id} Order ID = {self.order_id} Phone = {self.phone} Message={self.message} Message SID = {self.message_sid}>")
 
 
 def connect_to_db(app):

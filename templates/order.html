@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="/static/styles.css"> 
   </head>
-  <body>
     {% block content %}
 
     {% if 'user_id' in session %}
@@ -17,20 +16,19 @@
     {% endif %}
     <p>Select an order to get started.</p>
     
-    <div class="flex flex-col">
-              <tbody>
-                <div id='order-container' class='grid-item'></div>
-                <script src="/static/js/homepage.jsx" type="text/jsx"></script>
-                <script crossorigin
+    <section class="order-container" id="order-container">
+    
+
+      <script src="/static/js/homepage.jsx" type="text/jsx"></script>
+      <script crossorigin
   src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"
 ></script>
-              </tbody>
-    </div>
+            
+    </section>
     
 
       
     {% endblock %}
-  </body>
   {% block js %}
   {% endblock%}
   </html>
