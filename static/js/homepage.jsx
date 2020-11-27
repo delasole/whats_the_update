@@ -1,24 +1,25 @@
 function Order(props) {
   const {order} = props;
   return (
-  <table className="order-body">
+  <table className="min-w-lg divide-y divide-gray-200">
       <thead>
         <tr>
-          <td className="order-header">Order Id</td>
-          <td className="order-header">Order Date</td>
-          <td className="order-header">Buyer's Name</td>
-          <td className="order-header">Item Purchase</td>
-          <td className="order-header">Last Contacted</td>
+          <td scope="col" className="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Order Id</td>
+          <td scope="col" className="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Order Date</td>
+          <td scope="col" className="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Buyer's Name</td>
+          <td scope="col" className="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Item Purchase</td>
+          <td scope="col" className="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Contacted</td>
         </tr>
       </thead>
-      <tbody>
+      <tbody className="bg-white divide-y divide-gray-200">
         <tr>
-          <td className="order-detail">
-            <a href={"/messagecenter/" + order.order_id}>{order.order_id}</a>
+          <td className="px-4 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+          <a className="text-blue-500" href={"/messagecenter/" + order.order_id}>{order.order_id}</a>
           </td>
-          <td className="order-detail">{order.order_date}</td>
-          <td className="order-detail">{order.first_name} {order.last_name}</td>
-          <td className="order-detail">{order.item}</td>
+          <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500">{order.order_date}</td>
+          <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500">{order.first_name} {order.last_name}</td>
+          <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500">{order.item}</td>
+          <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500">{order.item}</td> 
         </tr>
       </tbody>
   </table>  

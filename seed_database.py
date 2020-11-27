@@ -8,17 +8,12 @@ import crud
 import models
 import server
 
-
-#Creates the whole database for this project
-os.system('dropdb messages')
-os.system('createdb messages')
-
 #Create Order
+
+models.connect_to_db(server.app)
 
 def add_orders():
     """ Adding orders to our orders database. Data is split by a semicolon"""
-
-    models.Order.query.delete()
 
     for row in open("data/orders.txt"):
         row = row.rstrip()
@@ -32,12 +27,11 @@ def add_orders():
                          order_date=order_date,
                          item=item)
     
-        db.session.add(order)
-    db.session.commit()
+        models.db.session.add(order)
+    models.db.session.commit()
 
 #Create User
-def add_users():
-    """ Adding users to our user database. Data is split by a semicolon"""
+"""def add_users():
 
 models.User.query.delete()
 
@@ -52,7 +46,7 @@ for row in open("data/users.txt"):
     db.session.add(user)
     db.session.commit()
 #This will be the commands to connect to the db and
-#add the new tables we created so far in the project
+#add the new tables we created so far in the project"""
 
-models.connect_to_db(server.app)
-models.db.create_all()
+
+#models.db.create_all()

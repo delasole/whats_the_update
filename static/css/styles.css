@@ -1,38 +1,36 @@
-body {
+.body-custom {
     background-color: #EEF4F4;
 }
 
-a{
+.a-custom{
     font-family: 'Playfair Display';
     font-weight: 700;
     color: black;
     text-decoration: none;
     padding-right: 40px;
     text-align: center;
+
 }
 
-h1{
+.h1-custom{
     font-size: 60px;
-    margin-right: 16px;
 }
 
-h2{
+.h2-custom{
     font-size: 36px;
-    margin-right: 16px;
 }
 
-p{
+.p-custom{
     font-size: 24px;
-    margin-right: 32px;
 }
 
-section{
+.section-custom{
     display:block;
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
 
-footer {
+.footer-custom {
 position: fixed;
 text-align:  center;
 bottom: 0;
@@ -46,7 +44,6 @@ width: 100%;
 }
 .topnav-left{
     float:left;
-    margin: 20px;
 }
 
 
@@ -54,12 +51,16 @@ width: 100%;
     background-color:#FB9119;
 }
 
-.row{
-    grid-template-columns: auto auto auto;
-    display: grid;
-}
+.row-custom {
+    display: flex;
+  }
+  
+  .column {
+    flex: 50%;
+  }
 
-.message-container{
+.message-container-custom
+{
     border-radius: 4px;
     background: #fff;
     box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
@@ -69,12 +70,12 @@ width: 100%;
     margin-right: 20px; 
 }
 
-.message-container:hover{
+.message-container-custom:hover{
     transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 }
 
-.message-button{
+.message-button-custom{
     float:right;
     vertical-align: top;
     margin: 10px;
@@ -82,7 +83,7 @@ width: 100%;
     color: white;
     border-radius: 2px;
 }
-  .custom-message{
+  .custom-message-custom{
       position:center;
   }
 
@@ -224,7 +225,8 @@ font-family: 'Playfair Display', sans-serif;
       padding-top: 10px;
       font-family: 'Playfair Display', sans-serif;
       font-size: 13px;
-      box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.04);
+
   }
 
 .forgot {

@@ -145,7 +145,7 @@ def send_msg():
 
 
   flash('Your message has been sent.')
-  time.sleep(3)
+  time.sleep(2)
   return redirect("/orders")
 
 

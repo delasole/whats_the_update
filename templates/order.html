@@ -10,13 +10,13 @@
     {% block content %}
 
     {% if 'user_id' in session %}
-    <h1>
+    <h1 class="h1-custom">
       Welcome {{ session['name']}}!
     </h1>
     {% endif %}
-    <p>Select an order to get started.</p>
+    <p class="p-custom">Select an order to get started.</p>
     
-    <section class="order-container" id="order-container">
+    <div class="centered overflow-hidden border-gray-200 sm:rounded-lg" id="order-container">
     
 
       <script src="/static/js/homepage.jsx" type="text/jsx"></script>
@@ -24,7 +24,7 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"
 ></script>
             
-    </section>
+    </div>
     
 
       

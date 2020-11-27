@@ -15,51 +15,53 @@
   <body>
     {% block content %}
     
-<h2>You are sending a message to:</h2>
+<h2 class="h2-custom">You are sending a message to:</h2>
 {% for item in order %}
-<div><p>{{item["first_name"]}} {{item["last_name"]}}</p></div>
+<div><p class="p-custom">{{item["first_name"]}} {{item["last_name"]}}</p></div>
 
-<h2>What message do you want to send?</h2>
+<h2 class="h2-custom">What message do you want to send?</h2>
 
-<div class="row">
-<form class="message-container" action="/sendmessage">
+<div class="row-custom">
+<form class="message-container-custom" action="/sendmessage">
   <input type="hidden" name="order" value= '{{item["order_id"]}}'>
   <input type="hidden" name="phone" value= '{{item["phone"]}}'>
   <input type="hidden" name="message" value=
   'Hello {{item["first_name"]}}, We are about to begin on your {{item["item"]}}.'>
-  <input class="message-button" type="submit" value="Send">
-  <p name="message" value=
+  <input class="message-button-custom" type="submit" value="Send">
+  <p class="p-custom" name="message" value=
   'Hello {{item["first_name"]}}, We are about to begin on your {{item["item"]}}.'>Hello {{item["first_name"]}}, We are about to begin on your {{item["item"]}}.</p>
 </form>
 
-<form class="message-container" action="/sendmessage">
+<form class="message-container-custom" action="/sendmessage">
   <input type="hidden" name="order" value= '{{item["order_id"]}}'>
   <input type="hidden" name="phone" value= '{{item["phone"]}}'>
   <input type="hidden" name="message" value=
   'Hello {{item["first_name"]}}, Friendly update that we have started work on {{item["item"]}}.'>
-  <input class="message-button" type="submit" value="Send">
-  <p name="message" value=
+  <input class="message-button-custom" type="submit" value="Send">
+  <p class="p-custom" name="message" value=
   'Hello {{item["first_name"]}}, Friendly update that we have started work on {{item["item"]}}.'>Hello {{item["first_name"]}}, Friendly update that we have started work on {{item["item"]}}.</p>
 </form>
 
-<form class="message-container" action="/sendmessage">
+<form class="message-container-custom" action="/sendmessage">
   <input type="hidden" name="order" value= '{{item["order_id"]}}'>
   <input type="hidden" name="phone" value= '{{item["phone"]}}'>
   <input type="hidden" name="message" value=
   'Hello {{item["first_name"]}}, We have finished {{item["item"]}} and will be delivering soon.'>
-  <input class="message-button" type="submit" value="Send">
-  <p name="message" value=
+  <input class="message-button-custom" type="submit" value="Send">
+  <p class="p-custom" name="message" value=
   'Hello {{item["first_name"]}}, We have finished {{item["item"]}} and will be delivering soon.'>Hello {{item["first_name"]}}, We have finished  {{item["item"]}} and will be delivering soon.</p>
 </form>
-  <div class="custom-message">
+<div> 
+  <div class="custom-message-custom">
     <form action="/sendmessage">
       <input type="hidden" name="order" value= '{{item["order_id"]}}'>
       <input type="hidden" name="phone" value= '{{item["phone"]}}'>
-      <input class="message-button" type="submit" value="Send">
-      <p>Enter your own message</p>
+      <input class="message-button-custom" type="submit" value="Send">
+      <p class="p-custom">Enter your own message</p>
       <input type="text" name="message">
   </form>
-  </div>
+    </div>
+</div>
 </div>
 {% endfor %}
     {% endblock %}

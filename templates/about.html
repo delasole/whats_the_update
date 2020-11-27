@@ -1,26 +1,12 @@
 {% extends 'base.html' %}
 
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>About</title>
-    <link rel="stylesheet" href="/static/styles.css">
-    <script
-      src="http://code.jquery.com/jquery-3.5.1.js"
-      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-      crossorigin="anonymous"></script>
-  </head>
-
-  {% block content %}
-  <body>
-    <section>
+{% block content %}
+    <section class="section-custom">
         <div>
             <div>
-                <h1>Project Description</h1>
-                <p>Send text messages to your customers to keep them informed of your progress.</p>
-                <h1>Technology Stack Used</h1>
+                <h1 class="h1-custom">Project Description</h1>
+                <p class="p-custom">Send text messages to your customers to keep them informed of your progress.</p>
+                <h1 class="h1-custom">Technology Stack Used</h1>
                 <ul>
                     <li>Python</li>
                     <li>SQL Alchemy</li>
@@ -30,12 +16,8 @@
                     <li>Tailwind UI</li>
                     <li>Lottie UI</li>
                 </ul>
-                <h1>How to Contact</h1>
+                <h1 class="h1-custom">How to Contact</h1>
             </div>
         </div>
     </section>
-
-
-    </body>
   {% endblock %}
-  </html>
