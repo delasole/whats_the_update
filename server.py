@@ -133,6 +133,12 @@ def get_details(order_id):
   order = crud.get_order_by_id(order_id)
   return render_template("message_center.html",order=order)
 
+@app.route("/history/<order_id>")
+def get_history(order_id):
+
+  msg_history = crud.get_messages_by_id(order_id)
+  return render_template("message_history.html",msg_history=msg_history)
+
 ### Sending a Text Message ####
 @app.route("/sendmessage/")
 def send_msg():

@@ -1,25 +1,12 @@
 {% extends 'base.html' %}
 
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Skills 4</title>
-    <link rel="stylesheet" href="/static/styles.css">
-    <script
-      src="http://code.jquery.com/jquery-3.5.1.js"
-      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-      crossorigin="anonymous"></script>
-  </head>
-  <body>
     {% block content %}
-    
-<h2 class="h2-custom">You are sending a message to:</h2>
+<div class="intro-header">  
+<h2 class="h2-custom">You are sending a message to:</h2><br>
 {% for item in order %}
-<div><p class="p-custom">{{item["first_name"]}} {{item["last_name"]}}</p></div>
+<div><p class="p-custom">{{item["first_name"]}} {{item["last_name"]}}</p></div><br>
 
-<h2 class="h2-custom">What message do you want to send?</h2>
+<h2 class="h2-custom">What message do you want to send?</h2><br>
 
 <div class="row-custom">
 <form class="message-container-custom" action="/sendmessage">
@@ -51,18 +38,23 @@
   <p class="p-custom" name="message" value=
   'Hello {{item["first_name"]}}, We have finished {{item["item"]}} and will be delivering soon.'>Hello {{item["first_name"]}}, We have finished  {{item["item"]}} and will be delivering soon.</p>
 </form>
+
+</div><br><br>
 <div> 
-  <div class="custom-message-custom">
+  <div class="custom-message-custom" style="display:block;margin-left: 35%;">
     <form action="/sendmessage">
       <input type="hidden" name="order" value= '{{item["order_id"]}}'>
       <input type="hidden" name="phone" value= '{{item["phone"]}}'>
-      <input class="message-button-custom" type="submit" value="Send">
-      <p class="p-custom">Enter your own message</p>
-      <input type="text" name="message">
+      <div style="overflow: hidden;">
+        <input type="text" name="message" placeholder="Enter your own message" style="width:50%;">
+        <input class="custom-message-button-custom" type="submit" value="Send">
+      </div>
   </form>
-    </div>
+  </div><br><br><br>
+<div style="display:block;margin-left: 43%;">
+  <a href="/history/{{item["order_id"]}}">See Message History</a>
+</div>
 </div>
 </div>
 {% endfor %}
     {% endblock %}
-      </body>

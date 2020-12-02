@@ -8,7 +8,6 @@ function Order(props) {
           <td scope="col" className="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Order Date</td>
           <td scope="col" className="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Buyer's Name</td>
           <td scope="col" className="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Item Purchase</td>
-          <td scope="col" className="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Contacted</td>
         </tr>
       </thead>
       <tbody className="bg-white divide-y divide-gray-200">
@@ -19,7 +18,6 @@ function Order(props) {
           <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500">{order.order_date}</td>
           <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500">{order.first_name} {order.last_name}</td>
           <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500">{order.item}</td>
-          <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500">{order.item}</td> 
         </tr>
       </tbody>
   </table>  

@@ -1,10 +1,9 @@
 from models import db, Order, Message, connect_to_db
 from datetime import date
 
-def store_message(order_id, phone, message, message_sid):
+def store_message(order_id, message, message_sid):
     
-    sent_message = Message(order_id = order_id, phone=phone,
-                        message=message, message_sid=message_sid)
+    sent_message = Message(order_id = order_id, message=message, message_sid=message_sid)
     
     db.session.add(sent_message)
     db.session.commit()
@@ -30,7 +29,7 @@ def get_messages():
     return Message.query.all()
 
 def get_messages_by_id(order_id):
-    return Message.query.get(order_id)
+    return Message.query.filter(Message.order_id == order_id).all()
 
 def get_order_by_id(order_id):
     return Order.query.filter(Order.order_id == order_id).all()

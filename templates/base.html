@@ -11,7 +11,7 @@
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
   
   {% if 'user_id' in session %}
-  <nav class = "topnav-right"><a class="  a-custom" target="_self" href="/logout">Logout</a></nav>
+  <nav class = "topnav-right"><a class="a-custom" target="_self" href="/logout">Logout</a></nav>
 
 
 {% else %}
@@ -28,18 +28,19 @@
 {% endif %}
 </head>
 
+<section>
 {% with messages = get_flashed_messages() %}
   {% if messages %}
     {% for message in messages %}
-      <p class="a-border">{{ message }}</p>
+      <div class="flashes">{{ message }}</div>
     {% endfor %}
   {% endif %}
 {% endwith %}
+</section>
 
 
 
 <body class="body-custom">
   {% block content %}{% endblock %}
 </body>
-<footer class="footer-custom">Made with<img src="/static/img/heart.svg">in Houston, TX.</footer>
 </html>

@@ -12,7 +12,7 @@ class User(db.Model):
     __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key = True, nullable = False, unique=True, autoincrement = True)
-    username = db.Column(db.String(100), nullable = False)
+    username = db.Column(db.String(100), nullable = False, unique=True)
     user_password=db.Column(PasswordType(onload=lambda **kwargs: dict(
                 schemes=['pbkdf2_sha512','md5_crypt'],
                 **kwargs)), unique=False, nullable=False)
@@ -44,15 +44,14 @@ class Message(db.Model):
 
     message_id = db.Column(db.Integer, primary_key= True, autoincrement=True)
     order_id = db.Column(db.Integer, db.ForeignKey('orders.order_id'))
-    phone = db.Column(db.String(15))
     message = db.Column(db.String(250))
     message_sid = db.Column(db.String(250))
-    message_date = db.Column(db.String(100))
+    message_date = db.Column(db.DateTime, default=datetime.utcnow())
 
     orders = db.relationship('Order', backref='message_history')
 
     def __repr__(self):
-        return(f"<Message ID = {self.message_id} Order ID = {self.order_id} Phone = {self.phone} Message={self.message} Message SID = {self.message_sid}>")
+        return(f"<Message ID = {self.message_id} Order ID = {self.order_id} Message={self.message} Message SID = {self.message_sid}>")
 
 
 def connect_to_db(app):

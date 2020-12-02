@@ -31,22 +31,20 @@ def add_orders():
     models.db.session.commit()
 
 #Create User
-"""def add_users():
+def add_users():
+    for row in open("data/users.txt"):
+        row = row.rstrip()
+        username,  user_password, user_first_name = row.split(";")
 
-models.User.query.delete()
-
-for row in open("data/users.txt"):
-    row = row.rstrip()
-    username,  user_password, user_first_name = row.split(";")
-
-    user = models.User(username=username,
+        user = models.User(username=username,
                        user_password=user_password,
                        user_first_name=user_first_name)
     
-    db.session.add(user)
-    db.session.commit()
+        models.db.session.add(user)
+    models.db.session.commit()
 #This will be the commands to connect to the db and
 #add the new tables we created so far in the project"""
+
 
 
 #models.db.create_all()

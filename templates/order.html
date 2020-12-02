@@ -10,11 +10,13 @@
     {% block content %}
 
     {% if 'user_id' in session %}
+    <div class="intro-header">
     <h1 class="h1-custom">
       Welcome {{ session['name']}}!
     </h1>
     {% endif %}
     <p class="p-custom">Select an order to get started.</p>
+    </div>
     
     <div class="centered overflow-hidden border-gray-200 sm:rounded-lg" id="order-container">
     
