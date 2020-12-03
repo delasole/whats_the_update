@@ -1,5 +1,6 @@
 from models import db, Order, Message, connect_to_db
 from datetime import date
+from sqlalchemy import desc
 
 def store_message(order_id, message, message_sid):
     
@@ -29,7 +30,7 @@ def get_messages():
     return Message.query.all()
 
 def get_messages_by_id(order_id):
-    return Message.query.filter(Message.order_id == order_id).all()
+    return Message.query.filter(Message.order_id == order_id).order_by(desc(Message.message_date)).all()
 
 def get_order_by_id(order_id):
     return Order.query.filter(Order.order_id == order_id).all()

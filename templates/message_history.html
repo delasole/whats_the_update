@@ -1,10 +1,29 @@
 {% extends 'base.html' %}
-
     {% block content %}
-<h2 class="h2-custom">Message History</h2>
-{% for msg in msg_history %}
 
+    <p class="p-custom">Message History</p>
 
+    <div class="border-gray-200 sm:rounded-lg centered">
+        <table class="min-w-lg divide-y divide-gray-200 centered">
+            <thead>
+              <tr>
+                <td scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Message Date</td>
+                <td scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Message </td>
+                <td scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Twilio Reference ID</td>
+              </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200 overflow-y-scroll">
+            {% for msg in msg_history %}
+            <tr>
+                <td class="px-4 py-4 whitespace-nowrap text-sm text-black-500">{{msg["message_date"]}}</td>
+                <td class="px-4 py-4 whitespace-nowrap text-sm text-black-500">{{msg["message"]}}</td>
+                <td class="px-4 py-4 whitespace-nowrap text-sm text-black-500">{{msg["message_sid"]}}</td>
+            </tr>
+            {%  endfor %}
+            </tbody>
+        </table>
+    </div>
 
-{% endfor %}
     {% endblock %}
+  {% block js %}
+  {% endblock%}
