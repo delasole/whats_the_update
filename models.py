@@ -17,7 +17,7 @@ class User(db.Model):
                 schemes=['pbkdf2_sha512','md5_crypt'],
                 **kwargs)), unique=False, nullable=False)
     user_first_name = db.Column(db.String(100), nullable = False)
-    date_created = db.Column(db.DateTime, default=datetime.utcnow(), nullable=False)
+    date_created = db.Column(db.Date, default=datetime.today(), nullable=False)
 
     def __repr__(self):
         return(f"< User ID = {self.id} Username = {self.username}> Name = {self.user_first_name}>")
@@ -30,7 +30,7 @@ class Order(db.Model):
     phone = db.Column(db.String(15), nullable = False)
     first_name = db.Column(db.String(100), nullable = False)
     last_name = db.Column(db.String(100), nullable = False)
-    order_date = db.Column(db.DateTime, nullable = False)
+    order_date = db.Column(db.Date, default=datetime.today(), nullable = False)
     item = db.Column(db.String(200), nullable = False)
 
     users = db.relationship('User', backref='orders')
@@ -46,7 +46,7 @@ class Message(db.Model):
     order_id = db.Column(db.Integer, db.ForeignKey('orders.order_id'))
     message = db.Column(db.String(250))
     message_sid = db.Column(db.String(250))
-    message_date = db.Column(db.DateTime, default=datetime.utcnow())
+    message_date = db.Column(db.Date, default=datetime.today())
 
     orders = db.relationship('Order', backref='message_history')
 

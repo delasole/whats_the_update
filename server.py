@@ -122,7 +122,7 @@ def get_orders():
   order_list = []
 
   for order in orders:
-    order_list.append({"order_id":order.order_id, "phone":order.phone, "first_name": order.first_name, "last_name": order.last_name, "order_date": order.order_date, "item":order.item})
+    order_list.append({"order_id":order.order_id, "phone":order.phone, "first_name": order.first_name, "last_name": order.last_name, "order_date": str(order.order_date), "item":order.item})
 
   return jsonify({"orders": order_list})
 
