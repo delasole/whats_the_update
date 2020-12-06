@@ -10,7 +10,7 @@ The message center has 3 pre-filled that dynamic populate information from the o
 
 # :iphone: Code Usage
 
-This application is designed as is. However, I really tried to incorporate a little bit over everything. In Pull Requests that improve the React and CSS piece of this application
+This application is designed as is. However, I wanted to incorporate a little bit of everything. Im interested in Pull Requests that improve the React and CSS piece of this application.
 
 # :iphone: Known Issues
 
